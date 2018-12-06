@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="utf-8">
+            <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <style>
+        .dis{
+            display: inline;
+        }
+    </style>
+<body>
+
+    <center><h3>Welcome</h3></center>
+
+
+    <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">Welcome to Queue!!</a>
+              </div>
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Queue</a></li>
+              </ul>
+            </div>
+          </nav>
+
+<!-- 
+<ul id="myList">
+</ul> -->
+
+<div class="container">
+       
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col col-md-6">
+                <p>Click the button to insert an item to the Queue</p>
+                <input class="form-control" id="inpQ" type="text" name="input" value="" placeholder="Enter Value" style="width: 270px"/>
+                <button class="btn btn-primary" onclick="add()">ADD</button>
+                <button class="btn btn-warning" onclick="remove()">REMOVE</button>
+                <h2>Queue</h2>
+                <ul  style="width:273px;" class="list-group" id="myListQ"></ul>
+        </div>
+    </div>  
+    
+
+     
+</div>
+
+
+<script>
+
+
+function remove(){
+    var list = document.getElementById("myListQ");
+    list.removeChild(list.childNodes[0]);
+    alert("first element is removed.")
+}
+
+function add(){
+    if(document.getElementById('inpQ').value.trim() == 0){
+        alert('Enter some value')
+    }
+    else{
+        var newItem = document.createElement("LI");
+        var t = document.getElementById('inpQ').value;
+        newItem.append(t);
+        newItem.className = "dis list-group-item"
+
+        var list = document.getElementById("myListQ");
+        list.append(newItem)
+
+        alert(`${t} is added in to queue`)
+		document.getElementById('inpQ').value = ""
+    }
+}
+</script>
+
+</body>
+</html>
